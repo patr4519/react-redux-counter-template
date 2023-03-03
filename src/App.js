@@ -28,7 +28,12 @@ function App() {
           </li>
         </ul>
         <footer className='footer'>
-          footer
+          <span className='todo-left'>X items left</span>
+          <ul className='filters'>
+            <li>All</li>
+            <li>Active</li>
+            <li>Completed</li>
+          </ul>
         </footer>
       </section>
     </div>

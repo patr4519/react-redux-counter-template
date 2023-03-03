@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 
 import { selectTodo } from "../redux/slices/todoSlice";
 
@@ -10,9 +10,7 @@ const MainSection = () => {
     setInputValue(e.target.value);
   };
 
-  const  todoArr  = useSelector(selectTodo);
-
-  console.log(todoArr);
+  const todoArr = useSelector(selectTodo);
 
   return (
     <>
@@ -42,7 +40,13 @@ const MainSection = () => {
             </div>
           </li>
         </ul>
-
+        <ul>
+          {
+            todoArr.map((item, index) => {
+              return <li key={index}>item</li>
+            })
+          }
+        </ul>
         <footer className="footer">
           <span className="todo-left">X items left</span>
           <ul className="filters">

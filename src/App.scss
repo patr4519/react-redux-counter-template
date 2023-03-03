@@ -8,12 +8,12 @@ body {
 }
 
 .App {
-   margin: 20px auto 0;
-   width: 500px;
-   border: 1px solid black;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  margin: 20px auto 0;
+  width: 500px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .mainTitle {
     color: red;
@@ -29,18 +29,29 @@ body {
 
   .main {
     width: 100%;
+
     ul {
       margin: 5px 0;
       padding: 0;
       list-style-type: none;
-    }
-  }
 
-  .footer {
-    display: flex;
-    ul {
+      li {
+        padding: 5px 0;
+      }
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .filters {
         display: flex;
-        margin: 0;
+
+        li {
+            margin: 0 5px;
+        }
+      }
     }
   }
 }

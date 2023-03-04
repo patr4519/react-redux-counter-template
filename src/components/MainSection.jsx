@@ -40,7 +40,7 @@ const MainSection = () => {
         <ul className="todo-list">
           {todoArr.items.map((item) => {
             return (
-              <LiComponent todoTitle={item.text} key={item.text} />
+              <LiComponent completed={item.completed} todoTitle={item.text} key={item.text} />
             );
           })}
         </ul>

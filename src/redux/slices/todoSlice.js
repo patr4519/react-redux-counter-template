@@ -30,11 +30,14 @@ const todoSlice = createSlice({
     clearItems(state) {
       state.items = [];
     },
+    completeTodo(state, action) {
+      console.log('complete ' + action.payload)
+    }
   },
 });
 
 export const selectTodo = (state) => state.todo;
 
-export const { addItem, clearItems, removeItem } = todoSlice.actions;
+export const { addItem, clearItems, removeItem, completeTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;

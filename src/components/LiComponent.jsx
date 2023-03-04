@@ -1,16 +1,16 @@
 import React from "react";
 
 import { useDispatch } from "react-redux";
-import { removeItem } from "../redux/slices/todoSlice";
+import { removeItem, completeTodo } from "../redux/slices/todoSlice";
 
-const LiComponent = ({ todoTitle }) => {
+const LiComponent = ({ todoTitle, completed }) => {
   const dispatch = useDispatch();
 
   return (
     <li>
-      <div className="view">
+      <div className={`view ${completed ? 'completed' : ''}`}>
         <div className="todo-item">
-          <input className="toggle" type="checkbox" />
+          <input onClick={() => dispatch(completeTodo(todoTitle))} className="toggle" type="checkbox" />
           <label>{todoTitle}</label>
         </div>
         <button onClick={() => dispatch(removeItem(todoTitle))}>remove</button>

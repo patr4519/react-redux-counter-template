@@ -9,8 +9,10 @@ const LiComponent = ({ todoTitle }) => {
   return (
     <li>
       <div className="view">
-        <input className="toggle" type="checkbox" />
-        <label>{todoTitle}</label>
+        <div todo-item>
+          <input className="toggle" type="checkbox" />
+          <label>{todoTitle}</label>
+        </div>
         <button onClick={() => dispatch(removeItem(todoTitle))}>remove</button>
       </div>
     </li>

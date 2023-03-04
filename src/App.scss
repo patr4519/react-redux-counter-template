@@ -37,6 +37,10 @@ body {
 
       li {
         padding: 5px 0;
+        .view {
+          display: flex;
+          justify-content: space-between;
+        }
       }
     }
 

@@ -14,7 +14,14 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      if (action.payload.text === '') return;
+      if (action.payload.text === '') {
+        alert('Input what need to do!');
+        return;
+      };
+      if(state.items.find(item => item.text === action.payload.text)) {
+        alert('Todo name must be uniq!');
+        return;
+      }
       state.items.push(action.payload);
     },
     removeItem(state, action) {

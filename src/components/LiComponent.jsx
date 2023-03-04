@@ -9,7 +9,7 @@ const LiComponent = ({ todoTitle }) => {
   return (
     <li>
       <div className="view">
-        <div todo-item>
+        <div className="todo-item">
           <input className="toggle" type="checkbox" />
           <label>{todoTitle}</label>
         </div>

@@ -1,17 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LiComponent from "./LiComponent";
-
+import { addItem } from "../redux/slices/todoSlice";
 import { selectTodo } from "../redux/slices/todoSlice";
 
 const MainSection = () => {
+  const todoArr = useSelector(selectTodo);
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = React.useState("");
 
   const inputHandler = (e) => {
     setInputValue(e.target.value);
   };
 
-  const todoArr = useSelector(selectTodo);
 
   return (
     <>
@@ -22,9 +23,10 @@ const MainSection = () => {
         value={inputValue}
       />
       <section className="main">
+        <button onClick={() => dispatch(addItem(inputValue))}>Add</button>
         <ul className="todo-list">
-          {todoArr.map((item, index) => {
-            return <LiComponent todoTitle={item} key={index} />;
+          {todoArr.map((item) => {
+            return <LiComponent todoTitle={item} key={item} />;
           })}
         </ul>
         <ul></ul>

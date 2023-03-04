@@ -45,7 +45,7 @@ body {
           justify-content: space-between;
         }
         .completed {
-          background-color: green;
+          text-decoration-line: line-through;
         }
       }
     }
@@ -59,7 +59,7 @@ body {
         display: flex;
 
         li {
-            margin: 0 5px;
+          margin: 0 5px;
         }
       }
     }

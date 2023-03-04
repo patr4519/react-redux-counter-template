@@ -6,6 +6,14 @@ const initialState = {
       text: "Todo 1",
       completed: false,
     },
+    {
+      text: "Todo 2",
+      completed: false,
+    },
+    {
+      text: "Todo 3",
+      completed: false,
+    },
   ],
 };
 
@@ -31,7 +39,7 @@ const todoSlice = createSlice({
       state.items = [];
     },
     completeTodo(state, action) {
-      console.log('complete ' + action.payload)
+      state.items = state.items.map(todo => todo.text === action.payload ? {...todo, completed: !todo.completed} : todo)
     }
   },
 });

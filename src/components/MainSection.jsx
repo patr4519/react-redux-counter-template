@@ -48,13 +48,8 @@ const MainSection = () => {
         <button onClick={addTodo}>Add</button>
         <button onClick={() => dispatch(clearItems())}>Clear</button>
         <ul className="todo-list">
-          {/* {todoArr.items.map((item) => {
-            return (
-              <LiComponent completed={item.completed} todoTitle={item.text} key={item.text} />
-            );
-          })} */}
           {currentSort === "All"
-            ? todoArr.items.map((item) => {
+            ? allTodos.map((item) => {
                 return (
                   <LiComponent
                     completed={item.completed}
@@ -85,7 +80,7 @@ const MainSection = () => {
               })
             : ""}
         </ul>
-        <Footer />
+        <Footer setCurrentSort={setCurrentSort} />
       </section>
     </>
   );

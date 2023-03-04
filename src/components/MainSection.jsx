@@ -10,6 +10,11 @@ const MainSection = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = React.useState("");
   const inputRef = React.useRef(null);
+  const [sortList, setSortList] = React.useState('All');
+
+  const allTodos = todoArr.items;
+  const allTodosCompleted = todoArr.items.filter(todo => todo.completed === true);
+  const allTodosActive = todoArr.items.filter(todo => todo.completed === false);
 
   const inputHandler = (e) => {
     setInputValue(e.target.value);

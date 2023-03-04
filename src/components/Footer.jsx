@@ -1,8 +1,10 @@
 import React from "react";
 import { selectTodo } from "../redux/slices/todoSlice";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectActive, selectCompleted } from "../redux/slices/todoSlice";
 
 const Footer = () => {
+  const dispatch = useDispatch();
   const todoArr = useSelector(selectTodo);
 
   return (
@@ -10,8 +12,8 @@ const Footer = () => {
       <span className="todo-left">{todoArr.items.length} todo(s)</span>
       <ul className="filters">
         <li>All</li>
-        <li>Active</li>
-        <li>Completed</li>
+        <li onClick={() => dispatch(selectActive())}>Active</li>
+        <li onClick={() => dispatch(selectCompleted())}>Completed</li>
       </ul>
     </footer>
   );

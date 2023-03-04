@@ -39,7 +39,7 @@ const MainSection = () => {
         </ul>
         <ul></ul>
         <footer className="footer">
-          <span className="todo-left">X items left</span>
+          <span className="todo-left">{todoArr.length} todo(s)</span>
           <ul className="filters">
             <li>All</li>
             <li>Active</li>

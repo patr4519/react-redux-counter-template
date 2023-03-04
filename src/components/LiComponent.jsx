@@ -1,11 +1,11 @@
 import React from "react";
 
-const LiComponent = () => {
+const LiComponent = ({ todoTitle }) => {
   return (
     <li>
       <div className="view">
         <input className="toggle" type="checkbox" />
-        <label>Todo 1</label>
+        <label>{todoTitle}</label>
       </div>
     </li>
   );

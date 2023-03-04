@@ -24,7 +24,7 @@ const MainSection = () => {
       <section className="main">
         <ul className="todo-list">
           {todoArr.map((item, index) => {
-            return <LiComponent />;
+            return <LiComponent todoTitle={item} key={index} />;
           })}
         </ul>
         <ul></ul>

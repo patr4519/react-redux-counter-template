@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  item: ["todo 1", "todo 2", "todo 3"],
+  item: ["Todo 1", "Todo 2", "Todo 3"],
 };
 
 const todoSlice = createSlice({
@@ -9,7 +9,7 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      state.push('test');
+      state.push("test");
     },
   },
 });

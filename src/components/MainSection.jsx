@@ -15,7 +15,12 @@ const MainSection = () => {
   };
 
   const addTodo = () => {
-    dispatch(addItem(inputValue));
+    dispatch(
+      addItem({
+        text: inputValue,
+        completed: false,
+      })
+    );
     setInputValue("");
     inputRef.current.focus();
   };
@@ -33,13 +38,15 @@ const MainSection = () => {
         <button onClick={addTodo}>Add</button>
         <button onClick={() => dispatch(clearItems())}>Clear</button>
         <ul className="todo-list">
-          {todoArr.map((item) => {
-            return <LiComponent todoTitle={item} key={item} />;
+          {todoArr.items.map((item) => {
+            return (
+              <LiComponent todoTitle={item.text} key={item.text} />
+            );
           })}
         </ul>
         <ul></ul>
         <footer className="footer">
-          <span className="todo-left">{todoArr.length} todo(s)</span>
+          <span className="todo-left">{todoArr.items.length} todo(s)</span>
           <ul className="filters">
             <li>All</li>
             <li>Active</li>

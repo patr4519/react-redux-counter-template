@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LiComponent from "./LiComponent";
 import { addItem, clearItems } from "../redux/slices/todoSlice";
 import { selectTodo } from "../redux/slices/todoSlice";
+import Footer from "./Footer";
 
 const MainSection = () => {
   const todoArr = useSelector(selectTodo);
@@ -44,15 +45,7 @@ const MainSection = () => {
             );
           })}
         </ul>
-        <ul></ul>
-        <footer className="footer">
-          <span className="todo-left">{todoArr.items.length} todo(s)</span>
-          <ul className="filters">
-            <li>All</li>
-            <li>Active</li>
-            <li>Completed</li>
-          </ul>
-        </footer>
+        <Footer />
       </section>
     </>
   );

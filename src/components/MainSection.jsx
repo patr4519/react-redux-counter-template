@@ -10,11 +10,15 @@ const MainSection = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = React.useState("");
   const inputRef = React.useRef(null);
-  const [sortList, setSortList] = React.useState('All');
+  const [currentSort, setCurrentSort] = React.useState("All");
 
   const allTodos = todoArr.items;
-  const allTodosCompleted = todoArr.items.filter(todo => todo.completed === true);
-  const allTodosActive = todoArr.items.filter(todo => todo.completed === false);
+  const allTodosCompleted = todoArr.items.filter(
+    (todo) => todo.completed === true
+  );
+  const allTodosActive = todoArr.items.filter(
+    (todo) => todo.completed === false
+  );
 
   const inputHandler = (e) => {
     setInputValue(e.target.value);
@@ -44,11 +48,42 @@ const MainSection = () => {
         <button onClick={addTodo}>Add</button>
         <button onClick={() => dispatch(clearItems())}>Clear</button>
         <ul className="todo-list">
-          {todoArr.items.map((item) => {
+          {/* {todoArr.items.map((item) => {
             return (
               <LiComponent completed={item.completed} todoTitle={item.text} key={item.text} />
             );
-          })}
+          })} */}
+          {currentSort === "All"
+            ? todoArr.items.map((item) => {
+                return (
+                  <LiComponent
+                    completed={item.completed}
+                    todoTitle={item.text}
+                    key={item.text}
+                  />
+                );
+              })
+            : currentSort === "Completed"
+            ? allTodosCompleted.map((item) => {
+                return (
+                  <LiComponent
+                    completed={item.completed}
+                    todoTitle={item.text}
+                    key={item.text}
+                  />
+                );
+              })
+            : currentSort === "Active"
+            ? allTodosActive.map((item) => {
+                return (
+                  <LiComponent
+                    completed={item.completed}
+                    todoTitle={item.text}
+                    key={item.text}
+                  />
+                );
+              })
+            : ""}
         </ul>
         <Footer />
       </section>

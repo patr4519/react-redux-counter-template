@@ -1,5 +1,6 @@
 import React from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import LiComponent from "./LiComponent";
 
 import { selectTodo } from "../redux/slices/todoSlice";
 
@@ -18,35 +19,15 @@ const MainSection = () => {
         className="mainInput"
         onChange={inputHandler}
         placeholder={"What needs to do?"}
+        value={inputValue}
       />
       <section className="main">
         <ul className="todo-list">
-          <li>
-            <div className="view">
-              <input className="toggle" type="checkbox" />
-              <label>Todo 1</label>
-            </div>
-          </li>
-          <li>
-            <div className="view">
-              <input className="toggle" type="checkbox" />
-              <label>Todo 2</label>
-            </div>
-          </li>
-          <li>
-            <div className="view">
-              <input className="toggle" type="checkbox" />
-              <label>Todo 3</label>
-            </div>
-          </li>
+          {todoArr.map((item, index) => {
+            return <LiComponent />;
+          })}
         </ul>
-        <ul>
-          {
-            todoArr.map((item, index) => {
-              return <li key={index}>item</li>
-            })
-          }
-        </ul>
+        <ul></ul>
         <footer className="footer">
           <span className="todo-left">X items left</span>
           <ul className="filters">

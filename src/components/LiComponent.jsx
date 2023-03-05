@@ -14,7 +14,6 @@ const LiComponent = ({ todoTitle, completed }) => {
         <div className={`todo-item ${completed ? "completed" : ""}`}>
           <input
             onClick={() => dispatch(completeTodo(todoTitle))}
-            className="toggle"
             type="checkbox"
           />
           <label>{todoTitle}</label>

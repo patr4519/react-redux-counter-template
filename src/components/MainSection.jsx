@@ -5,6 +5,9 @@ import { addItem, clearItems } from "../redux/slices/todoSlice";
 import { selectTodo } from "../redux/slices/todoSlice";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+
+const ariaLabel = { "aria-label": "description" };
 
 const MainSection = () => {
   const todoArr = useSelector(selectTodo);
@@ -38,30 +41,36 @@ const MainSection = () => {
 
   return (
     <>
-      <input
-        className="mainInput"
-        onChange={inputHandler}
-        placeholder={"What needs to do?"}
-        value={inputValue}
-        ref={inputRef}
-      />
+      <div className="form__group">
+        <input
+          type="text"
+          className="form__input"
+          id="name"
+          placeholder="What needs to do?"
+          value={inputValue}
+          ref={inputRef}
+          onChange={inputHandler}
+        />
+      </div>
       <section className="main">
-        <Button
-          onClick={addTodo}
-          size="small"
-          variant="contained"
-          color="success"
-        >
-          Add
-        </Button>
-        <Button
-          onClick={() => dispatch(clearItems())}
-          variant="outlined"
-          color="error"
-          size="small"
-        >
-          Clear all
-        </Button>
+        <Stack spacing={1} direction="row">
+          <Button
+            onClick={addTodo}
+            size="small"
+            variant="contained"
+            color="success"
+          >
+            Add
+          </Button>
+          <Button
+            onClick={() => dispatch(clearItems())}
+            variant="outlined"
+            color="error"
+            size="small"
+          >
+            Clear all
+          </Button>
+        </Stack>
         <ul className="todo-list">
           {currentSort === "All"
             ? allTodos.map((item) => {

@@ -4,6 +4,7 @@ import LiComponent from "./LiComponent";
 import { addItem, clearItems } from "../redux/slices/todoSlice";
 import { selectTodo } from "../redux/slices/todoSlice";
 import Footer from "./Footer";
+import Button from "@mui/material/Button";
 
 const MainSection = () => {
   const todoArr = useSelector(selectTodo);
@@ -45,8 +46,22 @@ const MainSection = () => {
         ref={inputRef}
       />
       <section className="main">
-        <button onClick={addTodo}>Add</button>
-        <button onClick={() => dispatch(clearItems())}>Clear</button>
+        <Button
+          onClick={addTodo}
+          size="small"
+          variant="contained"
+          color="success"
+        >
+          Add
+        </Button>
+        <Button
+          onClick={() => dispatch(clearItems())}
+          variant="outlined"
+          color="error"
+          size="small"
+        >
+          Clear all
+        </Button>
         <ul className="todo-list">
           {currentSort === "All"
             ? allTodos.map((item) => {

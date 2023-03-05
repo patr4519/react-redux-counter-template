@@ -24,7 +24,7 @@ const LiComponent = ({ todoTitle, completed }) => {
           className="deleteIcon"
           onClick={() => dispatch(removeItem(todoTitle))}
         >
-          <DeleteIcon sx={{ color: red[500] }} />
+          <DeleteIcon sx={{ color: red[600] }} />
         </div>
       </div>
     </li>

@@ -6,13 +6,14 @@ import { selectTodo } from "../redux/slices/todoSlice";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import close from "../img/close.svg";
 
 const MainSection = () => {
-  const todoArr = useSelector(selectTodo);
   const dispatch = useDispatch();
+  const todoArr = useSelector(selectTodo);
   const [inputValue, setInputValue] = React.useState("");
-  const inputRef = React.useRef(null);
   const [currentSort, setCurrentSort] = React.useState("All");
+  const inputRef = React.useRef(null);
 
   const allTodos = todoArr.items;
   const allTodosCompleted = todoArr.items.filter(
@@ -49,6 +50,15 @@ const MainSection = () => {
           ref={inputRef}
           onChange={inputHandler}
         />
+        {inputValue.length > 0 && (
+          <img
+            onClick={() => setInputValue("")}
+            className="close"
+            width={30}
+            src={close}
+            alt="close"
+          />
+        )}
       </div>
       <section className="main">
         <Stack spacing={1} direction="row">

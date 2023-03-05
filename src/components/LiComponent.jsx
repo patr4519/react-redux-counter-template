@@ -15,6 +15,7 @@ const LiComponent = ({ todoTitle, completed }) => {
           <input
             onClick={() => dispatch(completeTodo(todoTitle))}
             type="checkbox"
+            checked={completed}
           />
           <label>{todoTitle}</label>
         </div>

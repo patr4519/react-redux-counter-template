@@ -46,7 +46,7 @@ const MainSection = () => {
           type="text"
           className="form__input"
           id="name"
-          placeholder="What needs to do?"
+          placeholder="What need to do?"
           value={inputValue}
           ref={inputRef}
           onChange={inputHandler}

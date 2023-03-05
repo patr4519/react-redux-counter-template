@@ -4,14 +4,30 @@ import { useSelector } from "react-redux";
 
 const Footer = ({ setCurrentSort }) => {
   const todoArr = useSelector(selectTodo);
+  const [active, setActive] = React.useState('Completed')
+
+  const setAll = () => {
+    setCurrentSort('All');
+    setActive('All')
+  }
+
+  const setActives = () => {
+    setCurrentSort('Active');
+    setActive('Active')
+  }
+
+  const setCompleted = () => {
+    setCurrentSort('Completed');
+    setActive('Completed')
+  }
 
   return (
     <footer className="footer">
       <span className="todo-left">{todoArr.items.length} todo(s)</span>
       <ul className="filters">
-        <li onClick={() => setCurrentSort('All')}>All</li>
-        <li onClick={() => setCurrentSort('Active')}>Active</li>
-        <li onClick={() => setCurrentSort('Completed')}>Completed</li>
+        <li className={active === 'All' ? 'active' : ''} onClick={setAll}>All</li>
+        <li className={active === 'Active' ? 'active' : ''} onClick={setActives}>Active</li>
+        <li className={active === 'Completed' ? 'active' : ''} onClick={setCompleted}>Completed</li>
       </ul>
     </footer>
   );

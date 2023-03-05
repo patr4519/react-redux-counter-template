@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import LiComponent from "./LiComponent";
 import { addItem, clearItems } from "../redux/slices/todoSlice";
 import { selectTodo } from "../redux/slices/todoSlice";
+import LiComponent from "./LiComponent";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";

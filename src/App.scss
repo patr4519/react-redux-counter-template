@@ -43,6 +43,10 @@ body {
         .view {
           display: flex;
           justify-content: space-between;
+
+          .deleteIcon:hover {
+            cursor: pointer;
+          }
         }
         .completed {
           text-decoration-line: line-through;

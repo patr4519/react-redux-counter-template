@@ -7,7 +7,6 @@ import Footer from "./Footer";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-const ariaLabel = { "aria-label": "description" };
 
 const MainSection = () => {
   const todoArr = useSelector(selectTodo);

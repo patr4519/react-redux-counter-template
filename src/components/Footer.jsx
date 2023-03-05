@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const Footer = ({ setCurrentSort }) => {
   const todoArr = useSelector(selectTodo);
-  const [active, setActive] = React.useState('Completed')
+  const [active, setActive] = React.useState('All')
 
   const setAll = () => {
     setCurrentSort('All');

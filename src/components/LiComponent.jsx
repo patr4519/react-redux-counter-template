@@ -8,8 +8,8 @@ const LiComponent = ({ todoTitle, completed }) => {
 
   return (
     <li>
-      <div className={`view ${completed ? 'completed' : ''}`}>
-        <div className="todo-item">
+      <div className='view'>
+        <div className={`todo-item ${completed ? 'completed' : ''}`}>
           <input onClick={() => dispatch(completeTodo(todoTitle))} className="toggle" type="checkbox" />
           <label>{todoTitle}</label>
         </div>

@@ -6,14 +6,6 @@ const initialState = {
     //   text: "Todo 1",
     //   completed: true,
     // },
-    // {
-    //   text: "Todo 2",
-    //   completed: false,
-    // },
-    // {
-    //   text: "Todo 3",
-    //   completed: false,
-    // },
   ],
 };
 

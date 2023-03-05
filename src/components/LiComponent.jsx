@@ -1,6 +1,6 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { red } from '@mui/material/colors';
+import { red } from "@mui/material/colors";
 
 import { useDispatch } from "react-redux";
 import { removeItem, completeTodo } from "../redux/slices/todoSlice";
@@ -20,8 +20,11 @@ const LiComponent = ({ todoTitle, completed }) => {
           />
           <label>{todoTitle}</label>
         </div>
-        <div className="deleteIcon" onClick={() => dispatch(removeItem(todoTitle))}>
-          <DeleteIcon sx={{ color: red[500] }}/>
+        <div
+          className="deleteIcon"
+          onClick={() => dispatch(removeItem(todoTitle))}
+        >
+          <DeleteIcon sx={{ color: red[500] }} />
         </div>
       </div>
     </li>

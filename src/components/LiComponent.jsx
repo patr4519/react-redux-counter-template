@@ -1,9 +1,9 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { red } from "@mui/material/colors";
-
 import { useDispatch } from "react-redux";
 import { removeItem, completeTodo } from "../redux/slices/todoSlice";
+import AlertDialog from "./Desctiption";
 
 const LiComponent = ({ todoTitle, completed, description }) => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const LiComponent = ({ todoTitle, completed, description }) => {
           />
           <label>{todoTitle}</label>
         </div>
-        <div>{description}</div>
+        {description && description.length > 0 && <AlertDialog description={description ? description : ''} />}
         <div
           className="deleteIcon"
           onClick={() => dispatch(removeItem(todoTitle))}

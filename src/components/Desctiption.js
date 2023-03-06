@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-export default function AlertDialog({ description }) {
+export default function AlertDialog({ description, todoTitle }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -34,7 +34,7 @@ export default function AlertDialog({ description }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Description"}
+          {todoTitle}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

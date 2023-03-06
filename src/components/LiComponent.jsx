@@ -22,7 +22,7 @@ const LiComponent = ({ todoTitle, completed, description }) => {
         </div>
         <div className="leftBlock">
           {description && description.length > 0 && (
-            <AlertDialog description={description ? description : ""} />
+            <AlertDialog todoTitle={todoTitle} description={description ? description : ""} />
           )}
           <div
             className="deleteIcon"

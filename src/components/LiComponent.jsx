@@ -20,12 +20,16 @@ const LiComponent = ({ todoTitle, completed, description }) => {
           />
           <label>{todoTitle}</label>
         </div>
-        {description && description.length > 0 && <AlertDialog description={description ? description : ''} />}
-        <div
-          className="deleteIcon"
-          onClick={() => dispatch(removeItem(todoTitle))}
-        >
-          <DeleteIcon sx={{ color: red[600] }} />
+        <div className="leftBlock">
+          {description && description.length > 0 && (
+            <AlertDialog description={description ? description : ""} />
+          )}
+          <div
+            className="deleteIcon"
+            onClick={() => dispatch(removeItem(todoTitle))}
+          >
+            <DeleteIcon sx={{ color: red[600] }} />
+          </div>
         </div>
       </div>
     </li>

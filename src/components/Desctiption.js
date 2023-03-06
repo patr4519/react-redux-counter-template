@@ -23,6 +23,11 @@ export default function AlertDialog({ description }) {
         Description
       </Button>
       <Dialog
+        sx={{
+            '.css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
+                width: '500px',
+            }
+        }}
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"

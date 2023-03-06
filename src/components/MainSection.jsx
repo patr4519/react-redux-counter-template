@@ -30,14 +30,14 @@ const MainSection = () => {
 
   const descHandler = (e) => {
     setDescValue(e.target.value);
-  }
+  };
 
   const addTodo = () => {
     dispatch(
       addItem({
         text: inputValue,
         completed: false,
-        description: descValue
+        description: descValue,
       })
     );
     setInputValue("");
@@ -56,13 +56,15 @@ const MainSection = () => {
           ref={inputRef}
           onChange={inputHandler}
         />
-        <input
-          type="text"
-          className="form__input__desc"
-          placeholder="Description"
-          value={descValue}
-          onChange={descHandler}
-        />
+        {inputValue.length > 0 && (
+          <input
+            type="text"
+            className="form__input__desc"
+            placeholder="Description"
+            value={descValue}
+            onChange={descHandler}
+          />
+        )}
         {inputValue.length > 0 && (
           <img
             onClick={() => setInputValue("")}

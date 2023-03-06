@@ -90,6 +90,10 @@ body {
   width: 100%;
   position: relative;
 
+  input {
+    margin: 5px 0;
+  }
+
   .close {
     position: absolute;
     right: 5px;
@@ -116,5 +120,17 @@ body {
     border: none;
     border-bottom: 0.3rem solid transparent;
     transition: all 0.3s;
+
+    &__desc {
+      width: 100%;
+      color: #333;
+      font-size: 1rem;
+      padding: 3px 5px;
+      border-radius: 0.2rem;
+      background-color: #e1dcdc;
+      border: none;
+      border-bottom: 0.3rem solid transparent;
+      transition: all 0.3s;
+    }
   }
 }

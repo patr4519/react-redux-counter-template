@@ -12,6 +12,7 @@ const MainSection = () => {
   const dispatch = useDispatch();
   const todoArr = useSelector(selectTodo);
   const [inputValue, setInputValue] = React.useState("");
+  const [descValue, setDescValue] = React.useState("");
   const [currentSort, setCurrentSort] = React.useState("All");
   const inputRef = React.useRef(null);
 
@@ -27,14 +28,20 @@ const MainSection = () => {
     setInputValue(e.target.value);
   };
 
+  const descHandler = (e) => {
+    setDescValue(e.target.value);
+  }
+
   const addTodo = () => {
     dispatch(
       addItem({
         text: inputValue,
         completed: false,
+        description: descValue
       })
     );
     setInputValue("");
+    setDescValue("");
     inputRef.current.focus();
   };
 
@@ -44,11 +51,17 @@ const MainSection = () => {
         <input
           type="text"
           className="form__input"
-          id="name"
           placeholder="What need to do?"
           value={inputValue}
           ref={inputRef}
           onChange={inputHandler}
+        />
+        <input
+          type="text"
+          className="form__input__desc"
+          placeholder="Description"
+          value={descValue}
+          onChange={descHandler}
         />
         {inputValue.length > 0 && (
           <img
@@ -86,6 +99,7 @@ const MainSection = () => {
                   <LiComponent
                     completed={item.completed}
                     todoTitle={item.text}
+                    description={item.description}
                     key={item.text}
                   />
                 );

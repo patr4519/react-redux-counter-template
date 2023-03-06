@@ -5,7 +5,7 @@ import { red } from "@mui/material/colors";
 import { useDispatch } from "react-redux";
 import { removeItem, completeTodo } from "../redux/slices/todoSlice";
 
-const LiComponent = ({ todoTitle, completed }) => {
+const LiComponent = ({ todoTitle, completed, description }) => {
   const dispatch = useDispatch();
 
   return (
@@ -20,6 +20,7 @@ const LiComponent = ({ todoTitle, completed }) => {
           />
           <label>{todoTitle}</label>
         </div>
+        <div>{description}</div>
         <div
           className="deleteIcon"
           onClick={() => dispatch(removeItem(todoTitle))}

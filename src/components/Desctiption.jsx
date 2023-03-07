@@ -24,21 +24,19 @@ export default function AlertDialog({ description, todoTitle }) {
       </Button>
       <Dialog
         sx={{
-            '.css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
-                width: '500px',
-            }
+          ".css-1t1j96h-MuiPaper-root-MuiDialog-paper": {
+            width: "500px",
+          },
         }}
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {todoTitle}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{todoTitle}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-          {description}
+            {description}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

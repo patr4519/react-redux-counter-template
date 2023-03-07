@@ -22,6 +22,12 @@ export default function AlertDialog({ description, todoTitle }) {
     setOpen(false);
   };
 
+  const saveEdit = () => {
+    dispatch(editDesctiption({ todoTitle, inputField }));
+    setEditField(prev => !prev)
+    setInputField("");
+  };
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -41,16 +47,16 @@ export default function AlertDialog({ description, todoTitle }) {
         <DialogTitle id="alert-dialog-title">{todoTitle}</DialogTitle>
         {editField && (
           <textarea
+            className="textArea"
             onChange={(e) => setInputField(e.target.value)}
             defaultValue=""
           ></textarea>
         )}
-        <Button
-          onClick={() => dispatch(editDesctiption({ todoTitle, inputField }))}
-          autoFocus
-        >
-          Save edit
-        </Button>
+        {inputField.length > 0 && (
+          <Button onClick={saveEdit}>
+            Save edit
+          </Button>
+        )}
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {description}

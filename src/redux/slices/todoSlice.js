@@ -43,19 +43,19 @@ const todoSlice = createSlice({
           : todo
       );
     },
-
     selectActive(state) {
       state.items = state.items.filter((todo) => todo.completed !== true);
     },
     selectCompleted(state) {
       state.items = state.items.filter((todo) => todo.completed !== false);
     },
-
     editDesctiption(state, action) {
       state.items = state.items.map((todo) => {
-        return todo.text === action.payload.todoTitle ? {...todo, description: action.payload.inputField} : todo
-      })
-    }
+        return todo.text === action.payload.todoTitle
+          ? { ...todo, description: action.payload.inputField }
+          : todo;
+      });
+    },
   },
 });
 
@@ -68,7 +68,7 @@ export const {
   completeTodo,
   selectActive,
   selectCompleted,
-  editDesctiption
+  editDesctiption,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;

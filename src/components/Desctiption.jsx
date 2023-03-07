@@ -49,10 +49,10 @@ export default function AlertDialog({ description, todoTitle }) {
           <textarea
             className="textArea"
             onChange={(e) => setInputField(e.target.value)}
-            defaultValue=""
+            defaultValue={description}
           ></textarea>
         )}
-        {inputField.length > 0 && (
+        {(inputField.length > 0 && inputField !== description) && (
           <Button onClick={saveEdit}>
             Save edit
           </Button>

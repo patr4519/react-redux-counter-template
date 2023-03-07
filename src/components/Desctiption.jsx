@@ -5,9 +5,15 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useDispatch, useSelector } from "react-redux";
+import { editDesctiption, selectTodo } from "../redux/slices/todoSlice";
 
 export default function AlertDialog({ description, todoTitle }) {
   const [open, setOpen] = React.useState(false);
+  const [editField, setEditField] = React.useState(false);
+  const [inputField, setInputField] = React.useState("");
+  const todoArr = useSelector(selectTodo);
+  const dispatch = useDispatch();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,12 +40,22 @@ export default function AlertDialog({ description, todoTitle }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">{todoTitle}</DialogTitle>
+        {editField && (
+          <textarea
+            onChange={(e) => setInputField(e.target.value)}
+            defaultValue=""
+          ></textarea>
+        )}
+        <Button onClick={() => dispatch(editDesctiption({todoTitle, inputField}))} autoFocus>Save edit</Button>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {description}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
+          <Button onClick={() => setEditField((prev) => !prev)} autoFocus>
+            Edit
+          </Button>
           <Button onClick={handleClose} autoFocus>
             Ok
           </Button>

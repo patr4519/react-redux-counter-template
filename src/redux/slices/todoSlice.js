@@ -1,7 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [],
+  items: [
+    {
+      text: "Магазин",
+      completed: false,
+      description: "Сходить в магазин за продуктами",
+    },
+    {
+      text: "Еда",
+      completed: false,
+      description: "Приготовить еду",
+    },
+  ],
 };
 
 const todoSlice = createSlice({
@@ -39,6 +50,12 @@ const todoSlice = createSlice({
     selectCompleted(state) {
       state.items = state.items.filter((todo) => todo.completed !== false);
     },
+
+    editDesctiption(state, action) {
+      state.items = state.items.map((todo) => {
+        return todo.text === action.payload.todoTitle ? {...todo, description: action.payload.inputField} : todo
+      })
+    }
   },
 });
 
@@ -51,6 +68,7 @@ export const {
   completeTodo,
   selectActive,
   selectCompleted,
+  editDesctiption
 } = todoSlice.actions;
 
 export default todoSlice.reducer;
